@@ -9,12 +9,12 @@ RUN apt-get update -qq && \
 RUN add-apt-repository multiverse && \
     apt-get update -qq && \
     apt-get install -y libdvd-pkg && \
-    yes yes | dpkg-reconfigure libdvd-pkg
+    dpkg-reconfigure libdvd-pkg
     
 # Add the PPA and install
 RUN add-apt-repository ppa:stebbins/handbrake-releases && \
     apt-get update -qq && \
-    apt-get install -y handbrake-cli libdvdcss2
+    apt-get install -y handbrake-cli
 
 # Cleanup
 RUN apt-get remove -y software-properties-common && \
